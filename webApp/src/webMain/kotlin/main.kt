@@ -26,6 +26,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.ui.graphics.Color
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.fillMaxSize
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -261,7 +262,8 @@ fun App() {
         Spacer(modifier = Modifier.height(20.dp))
 
         Row(
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(6.dp)
         ) {
             listOf(
                 "C" to "C",
@@ -283,6 +285,7 @@ fun App() {
                         Color.Black
                     },
                     modifier = Modifier
+                        .weight(1f)
                         .background(
                             if (isSelected && minorPentatonic) {
                                 Color.Black
@@ -299,7 +302,7 @@ fun App() {
                         .clickable {
                             selectKey(key)
                         }
-                        .padding(8.dp)
+                        .padding(vertical = 8.dp)
                 )
             }
         }
@@ -307,7 +310,8 @@ fun App() {
         Spacer(modifier = Modifier.height(10.dp))
 
         Row(
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(6.dp)
         ) {
             listOf(
                 "Fs" to "F♯",
@@ -329,6 +333,7 @@ fun App() {
                         Color.Black
                     },
                     modifier = Modifier
+                        .weight(1f)
                         .background(
                             if (isSelected && minorPentatonic) {
                                 Color.Black
@@ -345,7 +350,7 @@ fun App() {
                         .clickable {
                             selectKey(key)
                         }
-                        .padding(8.dp)
+                        .padding(vertical = 8.dp)
                 )
             }
         }
