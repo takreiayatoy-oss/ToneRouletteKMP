@@ -27,6 +27,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -276,16 +277,10 @@ fun App() {
 
                 val isSelected = selectedKey == key
 
-                Text(
-                    text = label,
-                    fontSize = 24.sp,
-                    color = if (isSelected && minorPentatonic) {
-                        Color.White
-                    } else {
-                        Color.Black
-                    },
+                Box(
                     modifier = Modifier
                         .weight(1f)
+                        .height(60.dp)
                         .background(
                             if (isSelected && minorPentatonic) {
                                 Color.Black
@@ -295,15 +290,25 @@ fun App() {
                             CircleShape
                         )
                         .border(
-                            if (isSelected) 3.dp else 0.dp,
+                            if (isSelected) 3.dp else 1.dp,
                             Color.Black,
                             CircleShape
                         )
                         .clickable {
                             selectKey(key)
+                        },
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = label,
+                        fontSize = 24.sp,
+                        color = if (isSelected && minorPentatonic) {
+                            Color.White
+                        } else {
+                            Color.Black
                         }
-                        .padding(vertical = 8.dp)
-                )
+                    )
+                }
             }
         }
 
@@ -324,16 +329,10 @@ fun App() {
 
                 val isSelected = selectedKey == key
 
-                Text(
-                    text = label,
-                    fontSize = 24.sp,
-                    color = if (isSelected && minorPentatonic) {
-                        Color.White
-                    } else {
-                        Color.Black
-                    },
+                Box(
                     modifier = Modifier
                         .weight(1f)
+                        .height(60.dp)
                         .background(
                             if (isSelected && minorPentatonic) {
                                 Color.Black
@@ -343,15 +342,25 @@ fun App() {
                             CircleShape
                         )
                         .border(
-                            if (isSelected) 3.dp else 0.dp,
+                            if (isSelected) 3.dp else 1.dp,
                             Color.Black,
                             CircleShape
                         )
                         .clickable {
                             selectKey(key)
+                        },
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = label,
+                        fontSize = 24.sp,
+                        color = if (isSelected && minorPentatonic) {
+                            Color.White
+                        } else {
+                            Color.Black
                         }
-                        .padding(vertical = 8.dp)
-                )
+                    )
+                }
             }
         }
 
