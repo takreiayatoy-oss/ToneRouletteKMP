@@ -207,7 +207,7 @@ fun App() {
 
         Text(
             text = "Tone Roulette",
-            fontSize = 50.sp
+            fontSize = 36.sp
         )
 
         Spacer(modifier = Modifier.height(20.dp))
@@ -369,7 +369,7 @@ fun App() {
 
         Text(
             text = shape,
-            fontSize = 120.sp,
+            fontSize = 90.sp,
             modifier = Modifier.clickable {
 
                 if (minorPentatonic) {
@@ -509,7 +509,7 @@ fun App() {
 
         Text(
             text = message,
-            fontSize = 40.sp
+            fontSize = 28.sp
         )
     }
 }
