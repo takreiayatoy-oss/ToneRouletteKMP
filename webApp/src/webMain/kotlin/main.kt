@@ -207,7 +207,7 @@ fun App() {
 
         Text(
             text = "Tone Roulette",
-            fontSize = 36.sp
+            fontSize = 30.sp
         )
 
         Spacer(modifier = Modifier.height(20.dp))
@@ -281,7 +281,7 @@ fun App() {
                 Box(
                     modifier = Modifier
                         .weight(1f)
-                        .height(60.dp)
+                        .height(42.dp)
                         .background(
                             if (isSelected && minorPentatonic) {
                                 Color.Black
@@ -333,7 +333,7 @@ fun App() {
                 Box(
                     modifier = Modifier
                         .weight(1f)
-                        .height(60.dp)
+                        .height(42.dp)
                         .background(
                             if (isSelected && minorPentatonic) {
                                 Color.Black
