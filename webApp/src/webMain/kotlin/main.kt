@@ -29,6 +29,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.width
 
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {
@@ -367,149 +368,156 @@ fun App() {
 
         Spacer(modifier = Modifier.height(30.dp))
 
-        Text(
-            text = shape,
-            fontSize = 90.sp,
-            modifier = Modifier.clickable {
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = message,
+                fontSize = 32.sp
+            )
 
-                if (minorPentatonic) {
+            Spacer(modifier = Modifier.width(8.dp))
 
-                    if (Random.nextInt(100) < 50) {
-                        var number = previousNumber
+            Text(
+                text = shape,
+                fontSize = 90.sp,
+                modifier = Modifier.clickable {
 
-                        if (Random.nextInt(2) == 0) {
-                            number = previousNumber - 1
+                    if (minorPentatonic) {
 
-                            if (number < 0) {
-                                number += 5
+                        if (Random.nextInt(100) < 50) {
+                            var number = previousNumber
+
+                            if (Random.nextInt(2) == 0) {
+                                number = previousNumber - 1
+
+                                if (number < 0) {
+                                    number += 5
+                                }
+                            } else {
+                                number = previousNumber + 1
+
+                                if (number > 4) {
+                                    number -= 5
+                                }
                             }
+
+                            previousNumber = number
+
                         } else {
-                            number = previousNumber + 1
 
-                            if (number > 4) {
-                                number -= 5
+                            var number = Random.nextInt(5)
+
+                            while (number == previousNumber) {
+                                number = Random.nextInt(5)
                             }
+
+                            previousNumber = number
                         }
 
-                        previousNumber = number
+                        when (previousNumber) {
+                            0 -> {
+                                scaleNumber = 0
+                                shape = "○"
+                                message = "ド"
+                            }
+                            1 -> {
+                                scaleNumber = 2
+                                shape = "△"
+                                message = "レ"
+                            }
+                            2 -> {
+                                scaleNumber = 4
+                                shape = "□"
+                                message = "ミ"
+                            }
+                            3 -> {
+                                scaleNumber = 7
+                                shape = "◇"
+                                message = "ソ"
+                            }
+                            4 -> {
+                                scaleNumber = 9
+                                shape = "⬡"
+                                message = "ラ"
+                            }
+                        }
 
                     } else {
 
-                        var number = Random.nextInt(5)
+                        if (Random.nextInt(100) < 50) {
+                            var number = previousNumber
 
-                        while (number == previousNumber) {
-                            number = Random.nextInt(5)
-                        }
+                            if (Random.nextInt(2) == 0) {
+                                number = previousNumber - 1
 
-                        previousNumber = number
-                    }
+                                if (number < 0) {
+                                    number += 7
+                                }
+                            } else {
+                                number = previousNumber + 1
 
-                    when (previousNumber) {
-                        0 -> {
-                            scaleNumber = 0
-                            shape = "○"
-                            message = "ド"
-                        }
-                        1 -> {
-                            scaleNumber = 2
-                            shape = "△"
-                            message = "レ"
-                        }
-                        2 -> {
-                            scaleNumber = 4
-                            shape = "□"
-                            message = "ミ"
-                        }
-                        3 -> {
-                            scaleNumber = 7
-                            shape = "◇"
-                            message = "ソ"
-                        }
-                        4 -> {
-                            scaleNumber = 9
-                            shape = "⬡"
-                            message = "ラ"
-                        }
-                    }
-
-                } else {
-
-                    if (Random.nextInt(100) < 50) {
-                        var number = previousNumber
-
-                        if (Random.nextInt(2) == 0) {
-                            number = previousNumber - 1
-
-                            if (number < 0) {
-                                number += 7
+                                if (number > 6) {
+                                    number -= 7
+                                }
                             }
+
+                            previousNumber = number
+
                         } else {
-                            number = previousNumber + 1
 
-                            if (number > 6) {
-                                number -= 7
+                            var number = Random.nextInt(7)
+
+                            while (number == previousNumber) {
+                                number = Random.nextInt(7)
+                            }
+
+                            previousNumber = number
+                        }
+
+                        when (previousNumber) {
+                            0 -> {
+                                scaleNumber = 0
+                                shape = "○"
+                                message = "ド"
+                            }
+                            1 -> {
+                                scaleNumber = 2
+                                shape = "△"
+                                message = "レ"
+                            }
+                            2 -> {
+                                scaleNumber = 4
+                                shape = "□"
+                                message = "ミ"
+                            }
+                            3 -> {
+                                scaleNumber = 5
+                                shape = "⬠"
+                                message = "ファ"
+                            }
+                            4 -> {
+                                scaleNumber = 7
+                                shape = "◇"
+                                message = "ソ"
+                            }
+                            5 -> {
+                                scaleNumber = 9
+                                shape = "⬡"
+                                message = "ラ"
+                            }
+                            6 -> {
+                                scaleNumber = 11
+                                shape = "♡"
+                                message = "シ"
                             }
                         }
-
-                        previousNumber = number
-
-                    } else {
-
-                        var number = Random.nextInt(7)
-
-                        while (number == previousNumber) {
-                            number = Random.nextInt(7)
-                        }
-
-                        previousNumber = number
                     }
 
-                    when (previousNumber) {
-                        0 -> {
-                            scaleNumber = 0
-                            shape = "○"
-                            message = "ド"
-                        }
-                        1 -> {
-                            scaleNumber = 2
-                            shape = "△"
-                            message = "レ"
-                        }
-                        2 -> {
-                            scaleNumber = 4
-                            shape = "□"
-                            message = "ミ"
-                        }
-                        3 -> {
-                            scaleNumber = 5
-                            shape = "⬠"
-                            message = "ファ"
-                        }
-                        4 -> {
-                            scaleNumber = 7
-                            shape = "◇"
-                            message = "ソ"
-                        }
-                        5 -> {
-                            scaleNumber = 9
-                            shape = "⬡"
-                            message = "ラ"
-                        }
-                        6 -> {
-                            scaleNumber = 11
-                            shape = "♡"
-                            message = "シ"
-                        }
-                    }
+                    playCurrentNote()
                 }
-
-                playCurrentNote()
-            }
-        )
-
-        Text(
-            text = message,
-            fontSize = 28.sp
-        )
+            )
+        }
     }
 }
